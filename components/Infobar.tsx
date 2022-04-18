@@ -1,10 +1,47 @@
 import Image from "next/image"
-import styles from "../styles/Infobar.module.css"
+import styled from 'styled-components'
+
+const InfobarComponent = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    border-left: 5px solid var(--color4);;
+
+    section{
+        display: flex;
+        align-items: center;
+        width: 25%;
+        height: 3.25rem;
+
+        h3{
+            font-weight: 350;
+            margin-left: 0.7rem;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        flex-wrap: wrap;
+        border-left: 0;
+        border-top: 5px solid var(--color4);
+        justify-content: center;
+        
+        section{
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+    }
+`
 
 function Infobar() {
 
     return (
-        <div className={styles.container}>
+        <InfobarComponent>
             <section>
                 <h3>Pagamento rápido e seguro</h3>
             </section>
@@ -21,7 +58,7 @@ function Infobar() {
                 <h3>Via Pix</h3>
             </section>
             <Image src="/plus.svg" alt="plus" height={48} width={48}></Image>
-        </div>
+        </InfobarComponent>
     )
 }
 
