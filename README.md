@@ -2,4 +2,4 @@
 
 - Demo: unavailable
 
-- Technologies used: ReactJs, NextJs and TypeScript
+- Technologies used: ReactJs, NextJs, TypeScript and Styled Components

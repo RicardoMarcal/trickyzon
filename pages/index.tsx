@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Infobar from '../components/Infobar'
+import Products from '../components/Products'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = ({ categories }: any) => {
+const Home: NextPage = ({ categories, category, products }: any) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,18 +14,26 @@ const Home: NextPage = ({ categories }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <Header categories={categories} />
-    <Infobar />
+      <Header categories={categories} />
+      <Infobar />
+      <Products products={products} category={category} />
     </div>
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+  const category = context.query.category;
+
   const res = await fetch('https://fakestoreapi.com/products/categories')
   const categories = await res.json()
 
+  let products = await fetch(`https://fakestoreapi.com/products/category/${category}`).then((res) => res.json())
+  if(products.length === 0){
+    products = await fetch('https://fakestoreapi.com/products').then((res) => res.json())
+  }
+
   return {
-    props: { categories }
+    props: { categories, category, products }
   }
 }
 

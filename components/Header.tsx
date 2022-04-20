@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 const HeaderComponent = styled.header`
     background-color: var(--color3);
     padding: 0.5rem;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
 
     .wrapper{
         display: flex;
@@ -85,6 +87,8 @@ const HeaderComponent = styled.header`
 `
 
 function Header({ categories }: any) {
+    const router = useRouter();
+
     return (
         <HeaderComponent>
             <div className="wrapper">
@@ -101,8 +105,13 @@ function Header({ categories }: any) {
                 </div>
                 <nav className="categories">
                     <div>
+                            <p onClick={() => router.push(`/?category=all`)}>all</p>
                         {categories.map((category: any, i: number) =>
-                            <Link key={i} passHref href="/"><p>{category}</p></Link>
+                            <p
+                              key={i}
+                              onClick={() => router.push(`/?category=${category}`)}>
+                                {category}
+                            </p>
                         )}
                     </div>
                     <Link passHref href="/"><button>🛒</button></Link>
