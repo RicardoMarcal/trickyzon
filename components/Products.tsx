@@ -53,7 +53,7 @@ function Products({ category, products }: any) {
                 <div key={product.id}>
                     <Image src={product.image} alt={product.title} width={1024} height={1024} className="image"></Image>
                     <p>{product.title}</p>
-                    <h3>{product.price}</h3>
+                    <h3>{product.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</h3>
                 </div>
             ))}
         </section>

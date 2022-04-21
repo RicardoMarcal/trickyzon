@@ -4,4 +4,6 @@
 
 - Technologies used: ReactJs, NextJs, TypeScript and Styled Components
 
+- Inspirations: [Amazon](https://www.amazon.com/) and [Mercado Livre](https://www.mercadolivre.com.br/)
+
 - API: [Fake Store API](https://fakestoreapi.com/)

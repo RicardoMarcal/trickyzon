@@ -7,6 +7,10 @@ const HeaderComponent = styled.header`
     padding: 0.5rem;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
 
+    h1{
+        cursor: pointer;
+    }
+
     .wrapper{
         display: flex;
         flex-direction: column;
@@ -84,6 +88,12 @@ const HeaderComponent = styled.header`
             border: 0;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        .wrapper div form{
+            display: none;
+        }
+    }
 `
 
 function Header({ categories }: any) {
@@ -93,7 +103,7 @@ function Header({ categories }: any) {
         <HeaderComponent>
             <div className="wrapper">
                 <div>
-                    <h1>TRICKYZON</h1>
+                    <h1 onClick={() => router.push('/')}>TRICKYZON</h1>
                     <form action="">
                         <input type="text" placeholder='Search products...' />
                         <button type='submit'>🔎</button>
@@ -105,7 +115,7 @@ function Header({ categories }: any) {
                 </div>
                 <nav className="categories">
                     <div>
-                            <p onClick={() => router.push(`/?category=all`)}>all</p>
+                        <p onClick={() => router.push('/')}>all</p>
                         {categories.map((category: any, i: number) =>
                             <p
                               key={i}

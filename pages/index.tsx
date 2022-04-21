@@ -22,7 +22,7 @@ const Home: NextPage = ({ categories, category, products }: any) => {
 }
 
 export async function getServerSideProps(context: any) {
-  const category = context.query.category;
+  const category = context.query.category || null;
 
   const res = await fetch('https://fakestoreapi.com/products/categories')
   const categories = await res.json()
