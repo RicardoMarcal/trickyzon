@@ -111,7 +111,11 @@ const HeaderComponent = styled.header`
     }
 `
 
-function Header({ categories }: any) {
+interface Props {
+    categories: string[]
+}
+
+function Header({ categories }: Props) {
     const router = useRouter();
 
     return (
@@ -131,7 +135,7 @@ function Header({ categories }: any) {
                 <nav className="categories">
                     <div>
                         <p onClick={() => router.push('/')}>all</p>
-                        {categories.map((category: any, i: number) =>
+                        {categories.map((category: string, i: number) =>
                             <p
                               key={i}
                               onClick={() => router.push(`/?category=${category}`)}>

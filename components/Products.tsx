@@ -44,12 +44,26 @@ const ProductsComponent = styled.div`
 
 `
 
-function Products({ category, products }: any) {
+type Product = {
+    id: number,
+    title: string,
+    price: number,
+    category: string,
+    description: string,
+    image: string
+}
+
+interface Props {
+    category: string,
+    products: Product[]
+}
+
+function Products({ category, products }: Props) {
   return (
     <ProductsComponent>
         <h2>Selected Category: {category || 'all'}</h2>
         <section>
-            {products?.map((product: any) => (
+            {products?.map((product: Product) => (
                 <div key={product.id}>
                     <Image src={product.image} alt={product.title} width={1024} height={1024} className="image"></Image>
                     <p>{product.title}</p>

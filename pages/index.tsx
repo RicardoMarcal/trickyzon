@@ -1,11 +1,25 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Infobar from '../components/Infobar'
 import Products from '../components/Products'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = ({ categories, category, products }: any) => {
+type Product = {
+  id: number,
+  title: string,
+  price: number,
+  category: string,
+  description: string,
+  image: string
+}
+
+interface Props {
+  categories: string[],
+  category: string,
+  products: Product[]
+}
+
+const Home = ({ categories, category, products }: Props) => {
   return (
     <div className={styles.container}>
       <Head>
