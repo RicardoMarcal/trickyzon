@@ -9,6 +9,7 @@ const HeaderComponent = styled.header`
 
     h1{
         cursor: pointer;
+        grid-area: title;
     }
 
     .wrapper{
@@ -19,21 +20,22 @@ const HeaderComponent = styled.header`
         max-width: 1100px;
         margin: 0 auto;
         
-        div, div form{
+        section, section form{
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        div form{
+        section form{
+            grid-area: form;
             width: 100%;
-            max-width: 35rem;
+            max-width: 30rem;
             background-color: var(--color1);
             padding: 0.2rem;
             gap: 0.2em
         }
 
-        div form input{
+        section form input{
             width: 100%;
             border: 0;
             outline: 0;
@@ -41,7 +43,13 @@ const HeaderComponent = styled.header`
             padding: 0 0.5rem;
         }
 
-        div div button{
+        section div{
+            grid-area: buttons;
+            width: 100%;
+            max-width: 10.7rem;
+        }
+
+        section div button{
             width: 5rem;
             padding: 0.3rem;
             border-radius: 1rem;
@@ -52,7 +60,7 @@ const HeaderComponent = styled.header`
             cursor: pointer;
         }
 
-        div div button:nth-child(2){
+        section div button:nth-child(2){
             background-color: var(--color4);
             color: var(--color1);
             margin-left: 0.7rem;
@@ -90,8 +98,15 @@ const HeaderComponent = styled.header`
     }
 
     @media only screen and (max-width: 768px) {
-        .wrapper div form{
-            display: none;
+        .wrapper section{
+            display: grid;
+            grid-template-areas:
+                "title buttons"
+                "form form";
+            gap: 0.5rem;
+        }
+        .wrapper section form{
+            max-width: 100%;
         }
     }
 `
@@ -102,7 +117,7 @@ function Header({ categories }: any) {
     return (
         <HeaderComponent>
             <div className="wrapper">
-                <div>
+                <section>
                     <h1 onClick={() => router.push('/')}>TRICKYZON</h1>
                     <form action="">
                         <input type="text" placeholder='Search products...' />
@@ -112,7 +127,7 @@ function Header({ categories }: any) {
                         <Link passHref href="/"><button>Sign In</button></Link>
                         <Link passHref href="/"><button>Login</button></Link>
                     </div>
-                </div>
+                </section>
                 <nav className="categories">
                     <div>
                         <p onClick={() => router.push('/')}>all</p>
