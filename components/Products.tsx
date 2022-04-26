@@ -29,6 +29,15 @@ const ProductsComponent = styled.div`
             box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
             cursor: pointer;
 
+            img{
+                object-fit: contain;
+                transition: 300ms transform;
+
+                &:hover{
+                    transform: scale(1.15);
+                }
+            }
+
             p{
                 white-space: nowrap;
                 overflow: hidden;

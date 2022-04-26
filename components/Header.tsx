@@ -32,38 +32,46 @@ const HeaderComponent = styled.header`
             max-width: 30rem;
             background-color: var(--color1);
             padding: 0.2rem;
-            gap: 0.2em
-        }
+            gap: 0.2em;
 
-        section form input{
-            width: 100%;
-            border: 0;
-            outline: 0;
-            height: 1rem;
-            padding: 0 0.5rem;
+            input{
+                width: 100%;
+                border: 0;
+                outline: 0;
+                height: 1rem;
+                padding: 0 0.5rem;
+            }
+
+            button{
+                background-color: transparent;
+                border: 0;
+                border-left: 1px solid #bbb;
+                padding: 0.2rem;
+
+            }
         }
 
         section div{
             grid-area: buttons;
             width: 100%;
             max-width: 10.7rem;
-        }
 
-        section div button{
-            width: 5rem;
-            padding: 0.3rem;
-            border-radius: 1rem;
-            border: 2px solid var(--color4);
-            background-color: var(--color1);
-            color: var(--color4);
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
+            button{
+                width: 5rem;
+                padding: 0.3rem;
+                border-radius: 1rem;
+                border: 2px solid var(--color4);
+                background-color: var(--color1);
+                color: var(--color4);
+                font-size: 0.95rem;
+                cursor: pointer;
+            }
 
-        section div button:nth-child(2){
-            background-color: var(--color4);
-            color: var(--color1);
-            margin-left: 0.7rem;
+            button:nth-child(2){
+                background-color: var(--color4);
+                color: var(--color1);
+                margin-left: 0.7rem;
+            }
         }
     }
 
