@@ -21,10 +21,13 @@ const ProductsComponent = styled.div`
         justify-content: space-evenly;
         
         div{
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
             width: 15rem;
             margin-bottom: 2rem;
             background-color: var(--color1);
-            padding: 0.5rem;
+            padding: 1rem;
             border-radius: 0.3rem;
             box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
             cursor: pointer;

@@ -4,12 +4,13 @@ import styled from 'styled-components'
 
 const HeaderComponent = styled.header`
     background-color: var(--color3);
-    padding: 0.5rem;
+    padding: 0.7rem;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
 
     h1{
         cursor: pointer;
         grid-area: title;
+        color: var(--color5)
     }
 
     .wrapper{
@@ -30,8 +31,8 @@ const HeaderComponent = styled.header`
             grid-area: form;
             width: 100%;
             max-width: 30rem;
+            padding: 0.4rem;
             background-color: var(--color1);
-            padding: 0.2rem;
             gap: 0.2em;
 
             input{
@@ -46,7 +47,11 @@ const HeaderComponent = styled.header`
                 background-color: transparent;
                 border: 0;
                 border-left: 1px solid #bbb;
-                padding: 0.2rem;
+                padding: 0 0.5rem;
+                cursor: pointer;
+                i{
+                    font-size: 1.2rem;
+                }
 
             }
         }
@@ -72,6 +77,10 @@ const HeaderComponent = styled.header`
                 color: var(--color1);
                 margin-left: 0.7rem;
             }
+        }
+
+        nav{
+            margin-top: 0.4rem;
         }
     }
 
@@ -130,10 +139,10 @@ function Header({ categories }: Props) {
         <HeaderComponent>
             <div className="wrapper">
                 <section>
-                    <h1 onClick={() => router.push('/')}>TRICKYZON</h1>
+                    <h1 onClick={() => router.push('/')}><i className="fas fa-mug-hot"></i> TRICKYZON</h1>
                     <form action="">
                         <input type="text" placeholder='Search products...' />
-                        <button type='submit'>🔎</button>
+                        <button type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                     <div>
                         <Link passHref href="/"><button>Sign In</button></Link>
@@ -151,7 +160,7 @@ function Header({ categories }: Props) {
                             </p>
                         )}
                     </div>
-                    <Link passHref href="/"><button>🛒</button></Link>
+                    <Link passHref href="/"><button><i className="fa-solid fa-cart-shopping"></i></button></Link>
                 </nav>
             </div>
         </HeaderComponent>
