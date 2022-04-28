@@ -160,7 +160,7 @@ function Header({ categories }: Props) {
                             </p>
                         )}
                     </div>
-                    <Link passHref href="/"><button><i className="fa-solid fa-cart-shopping"></i></button></Link>
+                    <Link passHref href="/cart"><button><i className="fa-solid fa-cart-shopping"></i></button></Link>
                 </nav>
             </div>
         </HeaderComponent>

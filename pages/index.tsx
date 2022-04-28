@@ -1,3 +1,4 @@
+import { NextPage, NextPageContext } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Infobar from '../components/Infobar'
@@ -19,13 +20,12 @@ interface Props {
   products: Product[]
 }
 
-const Home = ({ categories, category, products }: Props) => {
+const Home: NextPage<Props> = ({ categories, category, products }) => {
   return (
     <div className={styles.container}>
       <Head>
         <title>Trickyzon</title>
         <meta name="description" content=":)" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -36,11 +36,10 @@ const Home = ({ categories, category, products }: Props) => {
   )
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: NextPageContext) {
   const category = context.query.category || null;
 
-  const res = await fetch('https://fakestoreapi.com/products/categories')
-  const categories = await res.json()
+  const categories = await fetch('https://fakestoreapi.com/products/categories').then((res) => res.json())
 
   let products = await fetch(`https://fakestoreapi.com/products/category/${category}`).then((res) => res.json())
   if(products.length === 0){
