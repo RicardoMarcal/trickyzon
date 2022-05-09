@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ categories, category, products }) => {
     <div className={styles.container}>
       <Head>
         <title>Trickyzon</title>
-        <meta name="description" content=":)" />
+        <meta name="description" content="Fake web store using Fake Store API - by Ricardo Marçal." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

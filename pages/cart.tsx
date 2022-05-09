@@ -30,7 +30,7 @@ const cart: NextPage<Props> = ({ categories, cart }) => {
     <div>
         <Head>
             <title>Trickyzon - Cart</title>
-            <meta name="description" content=":)" />
+            <meta name="description" content="Cart page from Trickyzon." />
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
